@@ -1,6 +1,6 @@
 <?php
 
-define('ROOT', 'http://localhost/MVC/public');
+define('ROOT', 'http://localhost/Projects/Mobistore/public');
 
 ini_set('session.use_only_cookies' , 1);
 ini_set('session.use_strict_mode', 1);
