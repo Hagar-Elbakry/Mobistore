@@ -17,6 +17,9 @@
 
     <!-- Custom CSS file -->
     <link rel="stylesheet" href="<?= ROOT?>/assets/css/style.css">
+    <?php
+      require  __DIR__ . "/../core/functions.php";
+    ?>
 </head>
 <body>
 
