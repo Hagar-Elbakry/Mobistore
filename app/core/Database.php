@@ -15,4 +15,14 @@ Class Database {
             die("Connection Failed " . $e->getMessage());
         }
     }
+
+    public function __destruct() {
+        $this->closeConnection();
+    }
+
+    protected function closeConnection() {
+        if($this->pdo != null) {
+            $this->pdo = null;
+        }
+    }
 }
