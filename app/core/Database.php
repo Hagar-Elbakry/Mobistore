@@ -1,38 +1,18 @@
 <?php
 
-trait Database {
-    private $dsn = "mysql:host=localhost;dbname=myfirstdatabasee";
-    private $dbuserName = "root";
-    private $dbPassword = '';
+Class Database {
+    protected $dsn = "mysql:host=localhost;dbname=mobistore";
+    protected $dbUsername = "root";
+    protected $dbPassword = '';
 
-    private function connect() {
-        $pdo = new PDO($this->dsn, $this->dbuserName, $this->dbPassword);
-        return $pdo;
-    }
+    public $pdo = null;
 
-    public function query($query, $data = []) {
-        $stmt = $this->connect()->prepare($query);
-        $check = $stmt->execute($data);
-        if($$check) {
-             $reslult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-             if(is_array($reslult) && count($reslult)) {
-                return $reslult;
-             }
-        } 
-
-        return false;
-    }
-
-     public function get_row($query, $data = []) {
-        $stmt = $this->connect()->prepare($query);
-        $check = $stmt->execute($data);
-        if($$check) {
-             $reslult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-             if(is_array($reslult) && count($reslult)) {
-                return $reslult[0];
-             }
-        } 
-
-        return false;
+    public function __construct() {
+        try {
+            $this->pdo = new PDO($this->dsn, $this->dbUsername, $this->dbPassword);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection Failed " . $e->getMessage());
+        }
     }
 }

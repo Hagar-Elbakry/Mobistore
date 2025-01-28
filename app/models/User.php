@@ -1,12 +1,12 @@
 <?php
 
-class User {
-    use Model;
+// class User {
+//     use Model;
 
-    protected $table = 'users';
-    protected $allowedColumns = [
-        'username',
-        'pwd',
-        'email'
-    ];
-}
+//     protected $table = 'users';
+//     protected $allowedColumns = [
+//         'username',
+//         'pwd',
+//         'email'
+//     ];
+// }
