@@ -1,8 +1,8 @@
 <?php
 
-class _404 {
+class Product {
     use Controller;
     public function index() {
-        $this->view('404');
+        $this->view('Product');
     }
 }
