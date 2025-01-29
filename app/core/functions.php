@@ -2,4 +2,4 @@
 
 $db = new Database();
 
-$product = new Product($db);
+$product = new Products($db);
