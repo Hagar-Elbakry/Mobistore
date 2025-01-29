@@ -1,4 +1,7 @@
 <?php 
+
+    ob_start();
+    
     include 'Header.view.php';
 
     
