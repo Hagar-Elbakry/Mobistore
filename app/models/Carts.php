@@ -22,7 +22,7 @@ Class Carts {
         }
     }
 
-    public function addToCart($userId, $itemId) {
+    public function addToCart($userId = null, $itemId = null) {
         if(isset($userId) && isset($itemId)) {
             $params = [
                 'user_id' => $userId,
@@ -36,7 +36,7 @@ Class Carts {
         }
     }
 
-    public function getSum($prices) {
+    public function getSum($prices = null) {
         if(isset($prices)) {
             $sum = 0;
             foreach($prices as $price) {
@@ -44,6 +44,22 @@ Class Carts {
             }
             
             return sprintf('%.2f', $sum);
+        }
+    }
+
+    public function deleteCart($item_id = null, $table = 'cart') {
+        if(isset($item_id)) {
+            $query = "DELETE FROM $table WHERE item_id = :item_id";
+            $stmt = $this->db->pdo->prepare($query);
+            $stmt->bindParam(':item_id', $item_id);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            
+            if($result) {
+                header('Location: cart');
+            }
+
+            return $result;
         }
     }
 }

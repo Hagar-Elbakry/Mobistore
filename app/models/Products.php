@@ -18,7 +18,7 @@ class products {
      
     }
 
-    public function getProduct($item_id, $table = 'product') {
+    public function getProduct($item_id = null, $table = 'product') {
         if(isset($item_id)) {
             $query = "SELECT * FROM $table WHERE item_id = :item_id";
             $stmt = $this->db->pdo->prepare($query);
