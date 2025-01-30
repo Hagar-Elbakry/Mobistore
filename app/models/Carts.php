@@ -1,6 +1,6 @@
 <?php
 
-Class Cart {
+Class Carts {
     public $db = null;
 
     public function __construct(Database $db) {
@@ -31,7 +31,7 @@ Class Cart {
 
             $result = $this->insertIntoCart($params);
             if($result) {
-                header('Location: ' . $_SERVER['PHP_SELF']);
+                header('Location: ' . ROOT);
             }
         }
     }
