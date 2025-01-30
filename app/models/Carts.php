@@ -73,4 +73,20 @@ Class Carts {
             return $carId;
         }
     }
+
+    public function saveForLater($item_id = null, $savedTable = 'wishlist', $fromTable = 'cart') {
+        if($item_id != null) {
+            $query = "INSERT INTO $savedTable SELECT * FROM $fromTable WHERE item_id = :item_id;";
+            $query .= "DELETE FROM $fromTable WHERE item_id = :item_id";
+            $stmt = $this->db->pdo->prepare($query);
+            $stmt->bindParam(':item_id', $item_id);
+            $result = $stmt->execute();
+
+            if($result) {
+                header('Location: cart');
+            }
+
+            return $result;
+        }
+    }
 }

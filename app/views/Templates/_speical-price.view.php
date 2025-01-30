@@ -46,7 +46,7 @@
                             if(in_array($item['item_id'], $cart->getCartId($product->getData('cart'))) ?? []) {
                               echo '<button type="submit" disabled class="btn btn-success font-size-12">In Cart</button>';
                             } else {
-                              echo '<button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>';
+                              echo '<button type="submit" name="speical_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>';
                             }
                           ?>
                         </form>
