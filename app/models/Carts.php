@@ -35,4 +35,15 @@ Class Carts {
             }
         }
     }
+
+    public function getSum($prices) {
+        if(isset($prices)) {
+            $sum = 0;
+            foreach($prices as $price) {
+                $sum += $price;
+            }
+            
+            return sprintf('%.2f', $sum);
+        }
+    }
 }
