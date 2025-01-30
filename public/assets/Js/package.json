@@ -1,11 +1,11 @@
 {
-  "name": "mobileshopee",
+  "name": "Mobistore",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "http://localhost/Projects/Mobistore/public/assets/Js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sass ./sass/style.scss style.css --watch"
+    "start": "sass http://localhost/Projects/Mobistore/public/assets/sass/style.scss style.css --watch"
   },
   "author": "akshay kashyap",
   "license": "ISC"
