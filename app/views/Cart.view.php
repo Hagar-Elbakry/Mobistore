@@ -1,4 +1,7 @@
 <?php 
+
+    ob_start();
+    
     include 'Header.view.php';
 
     include "Templates/_cart.view.php";
