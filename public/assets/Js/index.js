@@ -79,25 +79,25 @@ $(document).ready(function(){
 
     // click on qty up button
     $qty_up.click(function(e){
-
+            
         let $input = $(`.qty_input[data-id='${$(this).data("id")}']`);
         let $price = $(`.product_price[data-id='${$(this).data("id")}']`);
-
         // change product price using ajax call
-        $.ajax({url: "http://localhost/Projects/Mobistore/app/views/Templates/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
-               let obj = JSON.parse(result);
-               let item_price = obj[0]['item_price'];
+        $.ajax({url: "http://localhost/Projects/Mobisotre/app/views/Templates/ajax.php", type : 'post', data : { item_id : $(this).data("id")}, success: function(result){
+            
+                let obj = JSON.parse(result);
+                let item_price = obj[0]['item_price'];
 
                 if($input.val() >= 1 && $input.val() <= 9){
                     $input.val(function(i, oldval){
                         return ++oldval;
                     });
 
-                    //increase price of the product
+                    // increase price of the product
                     $price.text(parseInt(item_price * $input.val()).toFixed(2));
 
                     // set subtotal price
-                   // let subtotal = parseInt($deal_price.text()) + parseInt(item_price);
+                    let subtotal = parseInt($deal_price.text()) + parseInt(item_price);
                     $deal_price.text(subtotal.toFixed(2));
                 }
 
@@ -111,7 +111,7 @@ $(document).ready(function(){
         let $price = $(`.product_price[data-id='${$(this).data("id")}']`);
 
         // change product price using ajax call
-        $.ajax({url: "http://localhost/Projects/Mobistore/app/views/Templates/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
+        $.ajax({url: "http://localhost/Projects/Mobisotre/app/views/Templates/ajax.php", type : 'post', data : { itemid : $(this).data("id")}, success: function(result){
                 let obj = JSON.parse(result);
                 let item_price = obj[0]['item_price'];
 

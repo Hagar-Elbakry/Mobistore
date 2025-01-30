@@ -1,6 +1,7 @@
 <?php
 
-if(isset($_POST['itemid'])) {
-    $result = $product->getProduct($_POST['itemid']);
+if(isset($_POST['item_id'])) {
+    $result = $product->getProduct($_POST['item_id']);
     echo json_encode($result);
 }
+

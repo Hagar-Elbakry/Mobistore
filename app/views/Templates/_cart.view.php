@@ -1,5 +1,6 @@
  <?php
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_cart_submit'])) {
+   require "ajax.php";
+   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_cart_submit'])) {
         $deletedItem = $cart->deleteCart($_POST['item_id']);
     }
  ?>
