@@ -22,7 +22,7 @@ Class Carts {
         }
     }
 
-    public function addToCart($userId, $itemId) {
+    public function addToCart($userId, $itemId, $file = ROOT) {
         if(isset($userId) && isset($itemId)) {
             $params = [
                 'user_id' => $userId,
@@ -31,7 +31,7 @@ Class Carts {
 
             $result = $this->insertIntoCart($params);
             if($result) {
-                header('Location: ' . ROOT);
+                header('Location: ' .$file);
             }
         }
     }

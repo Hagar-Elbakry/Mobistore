@@ -1,5 +1,8 @@
 <?php
     $item_id = $_GET['item_id'] ?? 1;
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_submit'])) {
+        $cart->addToCart($_POST['user_id'], $item_id, 'Product?item_id=' . $item_id);
+    }
     foreach($product->getData() as $item):
         if($item['item_id'] == $item_id):
 ?>
@@ -15,8 +18,17 @@
                                     <button type="submit" class="btn btn-danger form-control">Proceed to Buy</button>
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btn btn-warning form-control">Add to Cart</button>
-                                </div>
+                        <form method="post">
+                            <input type="hidden" name="user_id" value="1">
+                            <?php
+                            if (in_array($item['item_id'], $cart->getCartId($product->getData('cart')) ?? [])){
+                                echo '<button type="submit" disabled class="btn btn-success font-size-16 form-control">In the Cart</button>';
+                            }else{
+                                echo '<button type="submit" name="product_submit" class="btn btn-warning font-size-16 form-control">Add to Cart</button>';
+                            }
+                            ?>
+                        </form>
+                    </div>
                             </div>
                         </div>
                         <div class="col-sm-6 py-5">
