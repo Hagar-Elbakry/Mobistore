@@ -46,7 +46,7 @@ The application has the following main features:
 - **URL Routing**: Uses .htaccess for URL rewriting to handle clean URLs.
 - **Autoloading**: Automatically loads required classes
 
-## Template Usage**
+## Template Usage
 
 This project uses an HTML, CSS and JavaScript template from the following repository: 
 [https://github.com/akashyap2013/Mobile_Shopee-E-Commerce-Website.git](https://github.com/akashyap2013/Mobile_Shopee-E-Commerce-Website.git).
